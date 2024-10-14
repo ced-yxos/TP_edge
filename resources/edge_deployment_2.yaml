@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-app
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: edge-app
+  template:
+    metadata:
+      labels:
+        app: edge-app
+    
+    spec:
+      imagePullSecrets:
+        - name: repo-secret
+      containers:
+        - name: edge-app-container
+          image: yxos/edge
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+              protocol: TCP
+      nodeSelector:
+          PoP: space_2

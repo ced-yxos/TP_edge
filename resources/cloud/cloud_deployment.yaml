@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloud-app
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloud-app
+  template:
+    metadata:
+      labels:
+        app: cloud-app    
+    spec:
+      imagePullSecrets:
+        - name: repo-secret
+      containers:
+        - name: cloud-app-container
+          image: yxos/cloud
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 6000
+              protocol: TCP
+      nodeSelector:
+          PoP: space_2
+
