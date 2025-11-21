@@ -13,8 +13,6 @@ spec:
       labels:
         app: cloud-app    
     spec:
-      imagePullSecrets:
-        - name: repo-secret
       containers:
         - name: cloud-app-container
           image: yxos/cloud
@@ -24,4 +22,5 @@ spec:
               protocol: TCP
       nodeSelector:
           PoP: space_2
+
 
