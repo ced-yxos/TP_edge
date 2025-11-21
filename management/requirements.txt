@@ -1,0 +1,5 @@
+fastapi
+requests
+redis
+uvicorn
+uvloop
