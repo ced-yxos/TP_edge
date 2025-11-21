@@ -3,6 +3,7 @@ import os, subprocess
 import requests
 import re
 import time, json
+import redis
 
 with open('data.json', 'r') as file:
     data = json.load(file)
@@ -227,4 +228,5 @@ async def edge_selection(info: dict):
     else:
         i += 1
     return None
+
 
