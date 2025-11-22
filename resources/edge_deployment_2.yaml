@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fastapi-app
+  name: edge-app
 
 spec:
   replicas: 1
@@ -23,4 +23,5 @@ spec:
               protocol: TCP
       nodeSelector:
           PoP: space_2
+
 
